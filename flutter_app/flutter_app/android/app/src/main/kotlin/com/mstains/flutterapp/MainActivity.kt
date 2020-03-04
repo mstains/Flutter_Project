@@ -1,4 +1,4 @@
-package com.mstains.hello_word
+package com.mstains.flutterapp
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
