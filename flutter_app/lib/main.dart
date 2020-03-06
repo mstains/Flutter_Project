@@ -239,6 +239,7 @@ class MyApp extends StatelessWidget {
       ),
     );
 
+    //布局圆角
     var containerDecoration = new Container(
       width: 400,
       height: 100,
@@ -254,20 +255,118 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return new MaterialApp(
-      home: new Scaffold(
-        body: new ListView(
+    //GridView
+    List<Container> _buildGridTileList(int index) {
+      return new List<Container>.generate(
+          index,
+          (int count) => new Container(
+                child: new Image.asset("images/coast.jpg"),
+              ));
+    }
+
+    Widget gridView = new GridView.extent(
+      maxCrossAxisExtent: 150.0,
+      padding: EdgeInsets.all(4.0),
+      mainAxisSpacing: 4.0,
+      crossAxisSpacing: 4.0,
+      children: _buildGridTileList(30),
+    );
+
+    //ListView
+    List<Widget> list = <Widget>[
+      new ListTile(
+        title: new Text('第一'),
+        subtitle: new Text('副标题'),
+        leading: new Icon(
+          Icons.theaters,
+          color: Colors.amber,
+        ),
+      ),
+      new ListTile(
+        title: new Text('The Castro Theater',
+            style: new TextStyle(fontWeight: FontWeight.w500, fontSize: 20.0)),
+        subtitle: new Text('429 Castro St'),
+        leading: new Icon(
+          Icons.theaters,
+          color: Colors.blue[500],
+        ),
+      ),
+    ];
+
+    //Stack
+
+    var stack = new Stack(
+      alignment: const Alignment(0.6, 0.6),
+      children: <Widget>[
+        new CircleAvatar(
+          backgroundImage: new AssetImage("images/coast.jpg"),
+          radius: 100.0,
+        ),
+        new Container(
+          decoration: new BoxDecoration(
+            color: Colors.black45,
+          ),
+          child: new Text(
+            '啦啦',
+            style: new TextStyle(
+              fontSize: 20.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )
+      ],
+    );
+
+    //Card
+
+    var card = new SizedBox(
+      height: 210.0,
+      child: new Card(
+        child: new Column(
           children: <Widget>[
-            imageSection,
-            titleSection,
-            buttonSection,
-            textSection,
-            rowSection,
-            columnSection,
-            leftColumn,
-            containerDecoration,
+            new ListTile(
+              title: new Text(
+                '第一',
+                style: new TextStyle(
+                    fontStyle: FontStyle.normal,
+                    color: Colors.orangeAccent,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.0),
+              ),
+              subtitle: new Text(
+                '副标题',
+              ),
+              leading: new Icon(Icons.layers,color: Colors.blue,),
+            ),
+            new Divider(),
           ],
         ),
+      ),
+    );
+
+    return new MaterialApp(
+      home: new Scaffold(
+        body: card,
+
+//      body: new ListView(
+//        children: list,
+//
+//      ),
+
+        //body: gridView,
+//        body: new ListView(
+//          children: <Widget>[
+//            imageSection,
+//            titleSection,
+//            buttonSection,
+//            textSection,
+//            rowSection,
+//            columnSection,
+//            leftColumn,
+//            containerDecoration,
+//          ],
+//        ),
       ),
     );
   }
