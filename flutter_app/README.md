@@ -1,6 +1,6 @@
 # flutterapp
 
-A new Flutter application.
+flutter入门学习
 
 ## Getting Started
 
