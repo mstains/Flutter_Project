@@ -39,5 +39,6 @@ class _HomeDartState extends State<HomeDart> {
     });
   }
 
-  final _widgetOptions = [Text('首页信息'), Text('联系人信息'), Text('发现信息')];
+  final _widgetOptions = [Text('首页信息'), Text('你好呀'), Text('发现信息')];
 }
+
